@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions_a.c                                   :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wrolanda <wrolanda@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/02 22:05:51 by wrolanda          #+#    #+#             */
-/*   Updated: 2022/03/03 01:22:34 by wrolanda         ###   ########.fr       */
+/*   Created: 2021/11/07 16:19:28 by wrolanda          #+#    #+#             */
+/*   Updated: 2022/03/03 15:09:58 by wrolanda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*DESCRIPTION
+Returns the last element of the list.
+PARAMETERS
+#1. The beginning of the list.*/
 #include "push_swap.h"
 
-void	ft_swap_a(t_list **list)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*lst2;
-
-	lst2 = (*list)->next;
-	(*list)->next = lst2->next;
-	lst2->next = (*list);
-	(*list) = lst2;
-	write(1, "sa\n", 3);
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }

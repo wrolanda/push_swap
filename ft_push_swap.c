@@ -6,7 +6,7 @@
 /*   By: wrolanda <wrolanda@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 21:22:53 by wrolanda          #+#    #+#             */
-/*   Updated: 2022/03/03 01:24:46 by wrolanda         ###   ########.fr       */
+/*   Updated: 2022/03/03 18:07:20 by wrolanda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@ static int	ft_lstsize(t_list **lst)
 void	ft_push_swap(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
-	stack_b = NULL;
+
 	size = ft_lstsize(stack_a);
 	if (size == 2)
-		ft_swap_a(stack_a);
-	ft_print_stack(stack_a);
+		ft_swap_a_or_b(stack_a, "sa\n");
+	ft_push_b(stack_a, stack_b);
+	ft_print_stacks(stack_a, stack_b);
+	ft_push_a(stack_a, stack_b);
+	ft_print_stacks(stack_a, stack_b);
 	/*else if (size == 3)
 		ft_sort_3(stack_a);
 	else if (size < 6)
