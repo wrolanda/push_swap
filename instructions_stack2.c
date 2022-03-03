@@ -6,7 +6,7 @@
 /*   By: wrolanda <wrolanda@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 16:38:51 by wrolanda          #+#    #+#             */
-/*   Updated: 2022/03/03 17:36:28 by wrolanda         ###   ########.fr       */
+/*   Updated: 2022/03/03 18:19:00 by wrolanda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void	ft_rotate_a_or_b(t_list **list, char *str)
 		write(1, str, ft_strlen(str));
 }
 
-void	ft_rotate_rr(t_list **list1, t_list **list2, char *str)
+void	ft_rotate_rr(t_list **list1, t_list **list2)
 {
 	ft_rotate_a_or_b(list1, NULL);
 	ft_rotate_a_or_b(list2, NULL);
-	write(1, str, ft_strlen(str));
+	write(1, "rr\n", 3);
 }
 
 void	ft_reverse_rotate_a_or_b(t_list **list, char *str)
@@ -49,9 +49,9 @@ void	ft_reverse_rotate_a_or_b(t_list **list, char *str)
 		write(1, str, ft_strlen(str));
 }
 
-void	ft_reverse_rotate_rr(t_list **list1, t_list **list2, char *str)
+void	ft_reverse_rotate_rr(t_list **list1, t_list **list2)
 {
 	ft_reverse_rotate_a_or_b(list1, NULL);
 	ft_reverse_rotate_a_or_b(list2, NULL);
-	write(1, str, ft_strlen(str));
+	write(1, "rrr\n", 4);
 }
