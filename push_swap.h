@@ -6,7 +6,7 @@
 /*   By: wrolanda <wrolanda@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 23:45:55 by wrolanda          #+#    #+#             */
-/*   Updated: 2022/03/05 16:35:20 by wrolanda         ###   ########.fr       */
+/*   Updated: 2022/03/05 17:20:53 by wrolanda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_check_double_sort(t_list **list);
 
 void	ft_push_swap(t_list **stack_a, t_list **stack_b);
 void	ft_main_sort(t_list **stack_a, t_list **stack_b, int size);
+void	ft_back_in_stack_a(t_list **stack_a, t_list **stack_b);
 
 void	ft_swap_a_or_b(t_list **list, char *str);
 void	ft_swap_ss(t_list **list1, t_list **list2);

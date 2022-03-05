@@ -6,7 +6,7 @@
 /*   By: wrolanda <wrolanda@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 13:58:43 by wrolanda          #+#    #+#             */
-/*   Updated: 2022/03/05 16:35:03 by wrolanda         ###   ########.fr       */
+/*   Updated: 2022/03/05 17:55:46 by wrolanda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,25 @@ static int	*ft_sort_mas(int *mas, int size)
 	return (mas);
 }
 
-static void	ft_f_base(t_list **stack_a, t_list **stack_b, int size)
+static void	ft_write_indexes(t_list *copylist, int a, int size, int *mas)
+{
+	while (copylist)
+	{
+		a = 0;
+		while (a < size)
+		{
+			if (copylist->value == mas[a])
+			{
+				copylist->index = a;
+				break ;
+			}
+			a++;
+		}
+		copylist = copylist->next;
+	}
+}
+
+void	ft_presort(t_list **stack_a, t_list **stack_b, int size)
 {
 	t_list	*copylist;
 	int		*mas;
@@ -53,71 +71,19 @@ static void	ft_f_base(t_list **stack_a, t_list **stack_b, int size)
 	}
 	mas = ft_sort_mas(mas, size);
 	copylist = *stack_a;
-	while (copylist)
-	{
-		a = 0;
-		while (a < size)
-		{
-			if (copylist->value == mas[a])
-			{
-				copylist->index = a;
-				break ;
-			}
-			a++;
-		}
-		copylist = copylist->next;
-	}
+	ft_write_indexes(copylist, a, size, mas);
 	free(mas);
 }
 
-static int	ft_found_position_max(t_list **list, int size)
+static int	ft_numelem(int size)
 {
-	int		min_pos;
-	int		x;
-	int		num;
-	t_list	*templ;
+	int	numelem;
 
-	templ = (*list);
-	num = templ->value;
-	x = 0;
-	min_pos = 0;
-	while (x < size)
-	{
-		if (templ->value > num)
-		{
-			num = templ->value;
-			min_pos = x;
-		}
-		templ = templ->next;
-		x++;
-	}
-	return (min_pos);
-}
-
-void	ft_back_in_stack_a(t_list **stack_a, t_list **stack_b)
-{
-	int	x;
-	int	y;
-
-	x = ft_lstsize(stack_b) + 1;
-	while (--x > 0)
-	{
-		y = ft_found_position_max(stack_b, x);
-		while (y > 0 && y < x)
-		{
-			if (y <= x / 2)
-			{
-				ft_rotate_a_or_b(stack_b, "rb\n");
-				y--;
-			}
-			else
-			{
-				ft_reverse_rotate_a_or_b(stack_b, "rrb\n");
-				y++;
-			}
-		}
-		ft_push_a(stack_a, stack_b);
-	}
+	if (size > 100)
+		numelem = 30;
+	else
+		numelem = 15;
+	return (numelem);
 }
 
 void	ft_main_sort(t_list **stack_a, t_list **stack_b, int size)
@@ -126,11 +92,8 @@ void	ft_main_sort(t_list **stack_a, t_list **stack_b, int size)
 	int	i;
 
 	size = ft_lstsize(stack_a);
-	if (size > 100)
-		numelem = 30;
-	else
-		numelem = 15;
-	ft_f_base(stack_a, stack_b, size);
+	numelem = ft_numelem(size);
+	ft_presort(stack_a, stack_b, size);
 	i = 0;
 	while (i < size)
 	{
