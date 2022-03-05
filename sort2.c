@@ -6,7 +6,7 @@
 /*   By: wrolanda <wrolanda@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:18:34 by wrolanda          #+#    #+#             */
-/*   Updated: 2022/03/05 17:19:48 by wrolanda         ###   ########.fr       */
+/*   Updated: 2022/03/05 20:33:23 by wrolanda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_found_position_max(t_list **list, int size)
 {
-	int		min_pos;
+	int		pos;
 	int		x;
 	int		num;
 	t_list	*templ;
@@ -22,18 +22,18 @@ static int	ft_found_position_max(t_list **list, int size)
 	templ = (*list);
 	num = templ->value;
 	x = 0;
-	min_pos = 0;
+	pos = 0;
 	while (x < size)
 	{
 		if (templ->value > num)
 		{
 			num = templ->value;
-			min_pos = x;
+			pos = x;
 		}
 		templ = templ->next;
 		x++;
 	}
-	return (min_pos);
+	return (pos);
 }
 
 void	ft_back_in_stack_a(t_list **stack_a, t_list **stack_b)
