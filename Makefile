@@ -6,7 +6,7 @@
 #    By: wrolanda <wrolanda@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/21 23:04:08 by wrolanda          #+#    #+#              #
-#    Updated: 2022/03/03 17:11:32 by wrolanda         ###   ########.fr        #
+#    Updated: 2022/03/05 16:36:23 by wrolanda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	=	push_swap
 
 SRCS	=	main.c				validation_of_in_data.c		frees.c\
 			work_with_stack.c	ft_push_swap.c			instructions_stack.c\
-			instructions_stack2.c\
+			instructions_stack2.c		sort.c			\
 			./experiments/main_check.c\
 			ft_strlen.c		ft_atoi.c		ft_split.c	ft_lstlast.c\
 

@@ -6,13 +6,13 @@
 /*   By: wrolanda <wrolanda@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 21:22:53 by wrolanda          #+#    #+#             */
-/*   Updated: 2022/03/04 01:21:16 by wrolanda         ###   ########.fr       */
+/*   Updated: 2022/03/05 16:55:33 by wrolanda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_lstsize(t_list **lst)
+int	ft_lstsize(t_list **lst)
 {
 	int		i;
 	t_list	*lst1;
@@ -120,8 +120,7 @@ void	ft_push_swap(t_list **stack_a, t_list **stack_b)
 		ft_sort_3(stack_a);
 	else if (size < 6)
 		ft_sort_5(stack_a, stack_b, size);
-	ft_print_stacks(stack_a, stack_b);
-/*
 	else
-		ft_sort(stack_a, stack_b, size);*/
+		ft_main_sort(stack_a, stack_b, size);
+	//ft_print_stacks(stack_a, stack_b);
 }
